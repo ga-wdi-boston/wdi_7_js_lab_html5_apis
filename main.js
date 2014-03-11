@@ -32,23 +32,18 @@ window.onload = function() {
     // this is previous target element
     this.classList.remove('over');
     this.style.opacity = '1';
-  };
-
-  function handleDrop(event) {
-    // stops browser redirecting
-
-    // if (event.stopPropagation) {
-    //   // stops browser redirecting
-    //   event.stopPropagation();
-    // }
-
-    event.preventDefault();
 
     if (event.target.className === "trash") {
       //event.target.style.background = "";
       dragSrcEl.parentNode.removeChild(dragSrcEl);
       event.target.appendChild(dragSrcEl);
     }
+
+  };
+
+  function handleDrop(event) {
+    // stops browser redirecting
+    event.preventDefault();
 
     // do nothing if dropping the same item
     if (dragSrcEl != this) {
