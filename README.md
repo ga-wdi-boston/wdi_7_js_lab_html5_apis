@@ -14,11 +14,11 @@ Create a web page with a text input field and a "Load" button. When the user ent
 
 ## [History](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history)
 
-Create a web page with a text input field and a "Go" button. When the user enters a number in the field and clicks the button, the page should load the image for the XKCD comic with that number, using the [Unofficial XKCD API](https://github.com/tibbon/xkcd_api_unofficial). Each time a new image is loaded this way, a new history entry should be created in the browser &ndash; so after loading several images, I should be able to click my browser's Back button and be taken back through each one (and then the Forward button should take me forward again).
+Create a web page with a text input field and a "Go" button. When the user enters a number in the field and clicks the button, the page should load the image for the XKCD comic with that number, using the [Unofficial XKCD API](https://github.com/tibbon/xkcd_api_unofficial). Each time a new image is loaded this way, a new history entry should be created in the browser &ndash; so after loading several images, I should be able to click my browser's Back button and be taken back through each one (and then the Forward button should take me forward again). Make sure this also updates the input field with the correct number. Ideally, clicking the Back/Forward buttons should not make additional API requests.
 
 ## [Drag and Drop](https://developer.mozilla.org/en-US/docs/DragDrop/Drag_and_Drop)
 
-Create a web page that is a mockup of a "todo" app: It should have a list of to-do items, a list of done items, and a trash bin. All of these can be hard-coded, we don't need to deal with adding new items or saving them anywhere.
+Create a web page that is a mockup of a "todo" app: It should have a list of to-do items, a list of done items, and a trash bin. All of these can be hard-coded, we don't need add new items or save them anywhere.
 
 Using the drag-and-drop APIs, allow items to be dragged and dropped from the to-do list to the done list and vice-versa. You should also be able to drag items from either list into the trash bin to delete them. When an item is being dragged and it is over a valid drop target, the target should be highlighted.
 
@@ -26,4 +26,4 @@ Using the drag-and-drop APIs, allow items to be dragged and dropped from the to-
 
 Create a web page with a text input field and a "Calculate" button. When the user enters a number N in the field and clicks the button, it should execute a JavaScript function that generates N random numbers, gets the average of them all (don't ask why), and displays it. If you set the number very high, like over 9000000, you'll find that your browser locks up while the function is executing. This is because all JavaScript in the browser runs on a single thread by default.
 
-Use a web worker to generate the random numbers in a separate thread. You'll need to pass the value from the input field to the worker, and your worker should report progress back to the main script, which should display it on the page. (Maybe show a dot for every 10000 numbers generated or something.) You'll also need to pass back the final average for display.
+Use a web worker to generate the random numbers in a separate thread. You'll need to pass the value from the input field to the worker, and your worker should report progress back to the main script, which should display it on the page (maybe show a dot for every 10000 numbers generated or something). You'll also need to pass back the final average for display.
