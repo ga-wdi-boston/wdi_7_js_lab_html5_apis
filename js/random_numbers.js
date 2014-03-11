@@ -1,7 +1,7 @@
-self.addEventListener('message', function(event) {
+self.onmessage = function(event) {
   var average = self.getNumbers(parseInt(event.data));
   self.postMessage(average);
-});
+};
 
 self.getNumbers = function(number) {
   var sum = 0;

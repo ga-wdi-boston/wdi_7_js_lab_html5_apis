@@ -2,7 +2,7 @@ $(document).ready(function() {
   var myWorker = new Worker('js/random_numbers.js'),
       returnCount = 0,
       widthIncrement = 0;
-  myWorker.addEventListener('message', function(event) {
+  myWorker.onmessage = function(event) {
     returnCount++;
     var newWidth = parseInt(widthIncrement * returnCount) + "px";
     if (event.data !== '') {
@@ -10,7 +10,7 @@ $(document).ready(function() {
     } else {
       $('#display').css('width', newWidth);
     }
-  });
+  };
   $('#randomize').click(function(event) {
     var userInput = $('#user-num').val();
     returnCount = 0;
