@@ -1,12 +1,19 @@
 $(document).ready(function() {
-  penColor = '';
+  penColor = 'tomato';
+  penSize = 5;
 
   setPenColor = function(event){
     penColor = event.target.id;
+    $('#size-preview').css({"background": penColor})
+  };
 
+  setPenSize = function(event){
+    penSize = $(event.target).val();
+    $('#size-preview').css({"width": penSize, "height": penSize});
   };
 
   $('#colors').click(setPenColor);
+  $('#size-slider').mouseup(setPenSize);
 
   var canvas = document.getElementById('myCanvas'),
     context = canvas.getContext('2d'),
@@ -40,9 +47,9 @@ $(document).ready(function() {
     e.preventDefault();
     if (dragging === true) {
       context.lineTo(e.offsetX,e.offsetY);
-      context.lineWidth = 8;
+      context.lineWidth = penSize;
       context.lineCap = 'round';
-      context.strokeStyle=penColor;
+      context.strokeStyle = penColor;
       context.stroke();
       prevX = e.offsetX;
       prevY = e.offsetY;
