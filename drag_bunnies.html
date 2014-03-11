@@ -7,12 +7,20 @@
   <article>
   <p>Drag the list items over the rainbow, and drop them to release the bunnies into the field</p>
   <div id="bin"></div>
-  <ul>
+  <ul id="to-do">
     <li><a id="one" href="#" draggable="true">one</a></li>
     <li><a href="#" id="two" draggable="true">two</a></li>
     <li><a href="#" id="three" draggable="true">three</a></li>
     <li><a href="#" id="four" draggable="true">four</a></li>
     <li><a href="#" id="five" draggable="true">five</a></li>
+  </ul>
+
+  <ul id="done">
+    <li><a id="six" href="#" draggable="true">six</a></li>
+    <li><a href="#" id="seven" draggable="true">seven</a></li>
+    <li><a href="#" id="eight" draggable="true">eight</a></li>
+    <li><a href="#" id="nine" draggable="true">nine</a></li>
+    <li><a href="#" id="ten" draggable="true">ten</a></li>
   </ul>
 </article>
 
@@ -92,6 +100,25 @@ window.onload = function() {
   bin.addEventListener('drop', function (e) {
     var el = document.getElementById(e.dataTransfer.getData('Text'));
     el.parentNode.removeChild(el);
+  });
+
+  var doneList = document.getElementById('done');
+
+  doneList.addEventListener('dragover', function (e) {
+    if (e.preventDefault) e.preventDefault(); // allows us to drop
+    this.className = 'over';
+    e.dataTransfer.dropEffect = 'copy';
+    return false;
+  });
+
+  doneList.addEventListener('dragleave', function (e) {
+    this.className = '';
+  });
+
+  doneList.addEventListener('drop', function (e) {
+    var el = document.getElementById(e.dataTransfer.getData('Text'));
+    var done = document.getElementById('done')
+    done.appendChild(el);
   });
 };
 </script>
