@@ -116,9 +116,11 @@ window.onload = function() {
   });
 
   doneList.addEventListener('drop', function (e) {
-    var el = document.getElementById(e.dataTransfer.getData('Text'));
-    var done = document.getElementById('done')
-    done.appendChild(el);
+    var el = document.getElementById(e.dataTransfer.getData('Text')),
+      done = document.getElementById('done'),
+      el_item = document.createElement('li');
+      el_item.appendChild(el)
+      done.appendChild(el_item);
   });
 };
 </script>
