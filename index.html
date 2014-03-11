@@ -27,6 +27,7 @@
       imageObj.src = $("#canvas-input").val();
       $("#canvas-input").val("");
       context.fillText("Sample String", 10, 50);
+      return false;
     });
     imageObj.onload = function(){
       context.drawImage(imageObj, 69, 50, 900, 550);
@@ -66,7 +67,6 @@
       context.strokeStyle="red";
       context.stroke();
       return false;
-
     }
   </script>
 </body>
