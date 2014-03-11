@@ -5,9 +5,9 @@
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <title>Canvas</title>
   <style>
-  	canvas {
-  		border: 1px solid #000;
-  	}
+    canvas {
+      border: 1px solid #000;
+    }
   </style>
 </head>
 <body>
@@ -16,9 +16,12 @@
   <canvas id="myCanvas" width="978" height="600"></canvas>
 
   <script>
-    var canvas = document.getElementById('myCanvas');
-    var context = canvas.getContext('2d');
-    var imageObj = new Image();
+    var canvas = document.getElementById('myCanvas'),
+      context = canvas.getContext('2d'),
+      imageObj = new Image(),
+      dragging = false,
+      prevX,
+      prevY;
     $('#canvas-button').click(function() {
       event.preventDefault();
       imageObj.src = $("#canvas-input").val();
@@ -29,14 +32,32 @@
       context.drawImage(imageObj, 69, 50, 900, 550);
     };
     canvas.onmousedown = function(e){
-
       e.preventDefault();
+      dragging = true;
+      prevX = e.offsetX;
+      prevY = e.offsetY;
+      context.beginPath();
+      context.moveTo(e.offsetX,e.offsetY);
+      //context.lineTo(20,100);
+    }
+    canvas.onmousemove = function(e){
+      e.preventDefault();
+      if (dragging === true) {
+        context.lineTo(e.offsetX,e.offsetY);
+        context.lineWidth = 8;
+        context.lineCap = 'round';
+        context.strokeStyle="red";
+        context.stroke();
+        prevX = e.offsetX;
+        prevY = e.offsetY;
+      }
       context.beginPath();
       context.moveTo(e.offsetX,e.offsetY);
       //context.lineTo(20,100);
     }
     canvas.onmouseup = function(e){
       e.preventDefault();
+      dragging = false;
       context.lineTo(e.offsetX,e.offsetY);
       context.lineWidth = 8;
       context.lineCap = 'round';
