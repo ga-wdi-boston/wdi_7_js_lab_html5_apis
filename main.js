@@ -31,6 +31,7 @@ window.onload = function() {
   function handleDragLeave(event) {
     // this is previous target element
     this.classList.remove('over');
+    this.style.opacity = '1';
   };
 
   function handleDrop(event) {
