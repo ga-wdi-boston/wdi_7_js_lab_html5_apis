@@ -38,7 +38,7 @@
       prevY = e.offsetY;
       context.beginPath();
       context.moveTo(e.offsetX,e.offsetY);
-      //context.lineTo(20,100);
+      return false;
     }
     canvas.onmousemove = function(e){
       e.preventDefault();
@@ -54,6 +54,8 @@
       context.beginPath();
       context.moveTo(e.offsetX,e.offsetY);
       //context.lineTo(20,100);
+      return false;
+
     }
     canvas.onmouseup = function(e){
       e.preventDefault();
@@ -63,6 +65,8 @@
       context.lineCap = 'round';
       context.strokeStyle="red";
       context.stroke();
+      return false;
+
     }
   </script>
 </body>
