@@ -14,7 +14,7 @@ Create a web page with a text input field and a "Load" button. When the user ent
 
 ## [History](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history)
 
-Create a web page with a text input field and a "Go" button. When the user enters a number in the field and clicks the button, the page should load the image for the XKCD comic with that number, using the [Unofficial XKCD API](https://github.com/tibbon/xkcd_api_unofficial). Each time a new image is loaded this way, a new history entry should be created in the browser &ndash; so after loading several images, I should be able to click my browser's Back button and be taken back through each one (and then the Forward button should take me forward again). Make sure this also updates the input field with the correct number. Ideally, clicking the Back/Forward buttons should not make additional API requests.
+Create a web page with a text input field and a "Go" button. When the user enters a number in the field and clicks the button, the page should load the image for the XKCD comic with that number, using the [Unofficial XKCD API](https://github.com/tibbon/xkcd_api_unofficial). Each time a new image is loaded this way, a new history entry should be created in the browser &ndash; so after loading several images, I should be able to click my browser's Back button and be taken back through each one (and then the Forward button should take me forward again). Make sure this also updates the input field with the correct number. Ideally going Back/Forward should not make additional API requests.
 
 ## [Drag and Drop](https://developer.mozilla.org/en-US/docs/DragDrop/Drag_and_Drop)
 
