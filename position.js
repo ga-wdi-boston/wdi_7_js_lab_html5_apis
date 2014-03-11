@@ -17,7 +17,7 @@ GeoApp.Position.prototype = {
 		li.append('<br>').append('Accuracy: ' + this.accuracy + '<br>');
 
 		latlon = this.latitude + ',' + this.longitude;
- 		img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&markers=color:blue|" + latlon + "&zoom=16&size=400x300&sensor=false";
+ 		img_url = "http://maps.googleapis.com/maps/api/staticmap?&markers=color:blue|" + latlon + "&zoom=16&size=400x300&sensor=false";
 		img = $('<img>', {src: img_url})
 
 		return li.append(img);
