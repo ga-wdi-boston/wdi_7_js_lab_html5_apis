@@ -10,18 +10,26 @@ li {
 	border-radius: 5px;
 }
 
-#red {
-	background: red;
+#tomato {
+	background: tomato;
 }
 
-#blue {
-	background: blue;
+.turquoise {
+	background: #34DDDD;
 }
 
 #orange {
 	background: orange;
 }
 
-#yellow {
-	background: yellow;
+.sunflower {
+	background: #f1c40f;
+}
+
+.wetasphalt {
+	background: #34495e;
+}
+
+.belizehole {
+	background: #2980b9;
 }
