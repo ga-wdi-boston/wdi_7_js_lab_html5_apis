@@ -7,10 +7,10 @@ $(document).ready(function(){
 var GeoApp = GeoApp || {};
 
 GeoApp.findMe = function(){
-	navigator.geolocation.getCurrentPosition(GeoApp.showLocation, GeoApp.onError);
+	navigator.geolocation.getCurrentPosition(GeoApp.checkIn, GeoApp.onError);
 };
 
-GeoApp.showLocation = function(position){
+GeoApp.checkIn = function(position){
 	GeoApp.locationArray.push(position);
 	GeoApp.updateStorage();
 
@@ -24,6 +24,7 @@ GeoApp.onError = function(){
 
 GeoApp.clearList = function(){
 	$('#checkins').empty();
+	GeoApp.locationArray = [];
 	localStorage.clear();
 };
 

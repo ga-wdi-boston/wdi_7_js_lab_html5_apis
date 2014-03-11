@@ -9,13 +9,17 @@ GeoApp.Position = function(position){
 
 GeoApp.Position.prototype = {
 	renderMe: function(){
-		var latitude, longitude, date, accuracy, li;
+		var li, img_url, img, latlon;
 
 		li = $('<li>').append(this.latitude);
 		li.append(', ' + this.longitude);
 		li.append('<br>').append(this.date)
-		li.append('<br>').append('Accuracy: ' + this.accuracy);
+		li.append('<br>').append('Accuracy: ' + this.accuracy + '<br>');
 
-		return li;
+		latlon = this.latitude + ',' + this.longitude;
+ 		img_url = "http://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&markers=color:blue|" + latlon + "&zoom=16&size=400x300&sensor=false";
+		img = $('<img>', {src: img_url})
+
+		return li.append(img);
 	}
 };
