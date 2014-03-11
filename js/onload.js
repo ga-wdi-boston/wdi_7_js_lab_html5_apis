@@ -7,6 +7,7 @@ $(document).ready(function() {
     var newWidth = parseInt(widthIncrement * returnCount) + "px";
     if (event.data !== '') {
       $('#result').text(event.data)
+      $('#display').css('width', '500px');
     } else {
       $('#display').css('width', newWidth);
     }
