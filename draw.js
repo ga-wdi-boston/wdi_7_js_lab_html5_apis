@@ -1,4 +1,13 @@
 $(document).ready(function() {
+  penColor = '';
+
+  setPenColor = function(event){
+    penColor = event.target.id;
+
+  };
+
+  $('#colors').click(setPenColor);
+
   var canvas = document.getElementById('myCanvas'),
     context = canvas.getContext('2d'),
     imageObj = new Image(),
@@ -33,7 +42,7 @@ $(document).ready(function() {
       context.lineTo(e.offsetX,e.offsetY);
       context.lineWidth = 8;
       context.lineCap = 'round';
-      context.strokeStyle="red";
+      context.strokeStyle=penColor;
       context.stroke();
       prevX = e.offsetX;
       prevY = e.offsetY;
