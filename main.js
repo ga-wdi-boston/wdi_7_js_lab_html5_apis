@@ -19,7 +19,7 @@ window.onload = function() {
       event.preventDefault();
     }
     // DataTransfer object!
-    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = 'all';
     return false;
   };
 
@@ -36,10 +36,20 @@ window.onload = function() {
 
   function handleDrop(event) {
     // stops browser redirecting
-    if (event.stopPropagation) {
-      // stops browser redirecting
-      event.stopPropagation();
+
+    // if (event.stopPropagation) {
+    //   // stops browser redirecting
+    //   event.stopPropagation();
+    // }
+
+    event.preventDefault();
+
+    if (event.target.className === "trash") {
+      //event.target.style.background = "";
+      dragSrcEl.parentNode.removeChild(dragSrcEl);
+      event.target.appendChild(dragSrcEl);
     }
+
     // do nothing if dropping the same item
     if (dragSrcEl != this) {
       // Set the source item's HTML to the HTML of the item we dropped on.
@@ -48,6 +58,7 @@ window.onload = function() {
     }
     return false;
   };
+
 
   function handleDragEnd(event) {
     [].forEach.call(items, function (item_drag) {
@@ -64,6 +75,19 @@ window.onload = function() {
     item_drag.addEventListener('drop', handleDrop, false);
     item_drag.addEventListener('dragend', handleDragEnd, false);
   });
+
+  var trash_can = document.querySelectorAll('.trash');
+  [].forEach.call(trash_can, function(trash_funct) {
+    trash_funct.addEventListener('dragstart', handleDragStart, false);
+    trash_funct.addEventListener('dragenter', handleDragEnter, false);
+    trash_funct.addEventListener('dragover', handleDragOver, false);
+    trash_funct.addEventListener('dragleave', handleDragLeave, false);
+    trash_funct.addEventListener('drop', handleDrop, false);
+    trash_funct.addEventListener('dragend', handleDragEnd, false);
+  });
+
+
+
 };
 
 
