@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <title>Canvas</title>
+  <style>
+  	canvas {
+  		border: 1px solid #000;
+  	}
+  </style>
+</head>
+<body>
+  <input id='canvas-input' placeholder="Enter URL here"/>
+  <button id="canvas-button">submit</button>
+  <canvas id="myCanvas" width="978" height="600"></canvas>
+
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+    $('#canvas-button').click(function() {
+      event.preventDefault();
+      imageObj.src = $("#canvas-input").val();
+      $("#canvas-input").val("");
+      context.fillText("Sample String", 10, 50);
+    });
+    imageObj.onload = function(){
+      context.drawImage(imageObj, 69, 50, 900, 550);
+    };
+    canvas.onmousedown = function(e){
+
+      e.preventDefault();
+      context.beginPath();
+      context.moveTo(e.offsetX,e.offsetY);
+      //context.lineTo(20,100);
+    }
+    canvas.onmouseup = function(e){
+      e.preventDefault();
+      context.lineTo(e.offsetX,e.offsetY);
+      context.lineWidth = 8;
+      context.lineCap = 'round';
+      context.strokeStyle="red";
+      context.stroke();
+    }
+  </script>
+</body>
+</html>
