@@ -14,7 +14,6 @@ $(document).ready(function() {
     event.preventDefault();
     imageObj.src = $("#canvas-input").val();
     $("#canvas-input").val("");
-
     return false;
   });
 
@@ -26,7 +25,8 @@ $(document).ready(function() {
     context.beginPath();
     context.moveTo(e.offsetX,e.offsetY);
     return false;
-  }
+  };
+
   canvas.onmousemove = function(e){
     e.preventDefault();
     if (dragging === true) {
@@ -42,8 +42,8 @@ $(document).ready(function() {
     context.moveTo(e.offsetX,e.offsetY);
     //context.lineTo(20,100);
     return false;
+  };
 
-  }
   canvas.onmouseup = function(e){
     e.preventDefault();
     dragging = false;
@@ -53,7 +53,7 @@ $(document).ready(function() {
     context.strokeStyle="red";
     context.stroke();
     return false;
-  }
+  };
 
 });
 
