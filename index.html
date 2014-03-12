@@ -17,14 +17,22 @@
     <input id='canvas-input' placeholder="Enter URL here"/>
     <button id="canvas-button">submit</button>
   </div>
-  <ul id='colors'>
-    <li id='tomato'></li>
-    <li id='#34DDDD' class='turquoise'></li>
-    <li id='#34495e' class='wetasphalt'></li>
-    <li id='#2980b9' class='belizehole'></li>
-    <li id='orange'></li>
-    <li id='#f1c40f' class='sunflower'></li>
-  </ul>
+  <div id='controls'>
+    <div id='pen-color' class='inline'>
+      <ul id='colors'>
+        <li id='tomato'></li>
+        <li id='#34DDDD' class='turquoise'></li>
+        <li id='#34495e' class='wetasphalt'></li>
+        <li id='#2980b9' class='belizehole'></li>
+        <li id='orange'></li>
+        <li id='#f1c40f' class='sunflower'></li>
+      </ul>
+    </div>
+    <div id='pen-size' class='inline'>
+      <div id='pen' class='inline'><span id='size-preview' class='inline'></span></div>
+      <input type='range' min='2' max='40' step='5' class='inline' id='size-slider'>
+    </div>
+  </div>
   <canvas id="myCanvas" width="978" height="600"></canvas>
   <button id="clear">Clear</button>
 </body>
