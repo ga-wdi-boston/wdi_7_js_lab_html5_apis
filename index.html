@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XKCD Ajax!</title>
+  <h1>XKCD Ajax!</h1>
+  <link rel="stylesheet" type="text/css" href="css/simple.css" media="screen" />
+  <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- <button id="by_month">July</button> -->
+<select id="by_month">
+  <option value="01">January</option>
+  <option value="02">February</option>
+  <option value="03">March</option>
+  <option value="04">April</option>
+  <option value="05">May</option>
+  <option value="06">June</option>
+  <option value="07">July</option>
+  <option value="08">August</option>
+  <option value="09">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+</select>
+
+<form id="by_number">
+    <input type="text" id="xkcd_number" placeholder="Which xkcd?">
+    <input type="submit" value="Go">
+</form>
+
+<div id="comic_results"></div>
+
+</body>
+</html>
