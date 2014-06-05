@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="js/jquery.js"></script>
+
+<script>
+  var worker = new Worker('js/worker.js');
+
+  worker.onmessage = function (event) {
+    var message = document.getElementById('result').textContent = event.data;
+    $('#shovel').append(message + ' ');
+  };
+</script>
+
+</head>
+
+<body>
+<p>The highest prime number discovered (in an awful and wrong manner) so far is: <output id="result"></output></p>
+<div id='shovel'>
+
+<div>
+
+</body>
+</html>

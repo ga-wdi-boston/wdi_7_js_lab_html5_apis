@@ -27,3 +27,26 @@ Using the drag-and-drop APIs, allow items to be dragged and dropped from the to-
 Create a web page with a text input field and a "Calculate" button. When the user enters a number N in the field and clicks the button, it should execute a JavaScript function that generates N random numbers, gets the average of them all (don't ask why), and displays it. If you set the number very high, like over 9000000, you'll find that your browser locks up while the function is executing. This is because all JavaScript in the browser runs on a single thread by default.
 
 Use a web worker to generate the random numbers in a separate thread. You'll need to pass the value from the input field to the worker, and your worker should report progress back to the main script, which should display it on the page (maybe show a dot for every 10000 numbers generated or something). You'll also need to pass back the final average for display.
+
+## Micro forms
+https://schema.org/docs/gs.html
+
+These help add visibility of pages to web search engines by adding descriptive tags that the engine can see but are not visible to viewers.
+
+--from--
+<div>
+ <h1>Avatar</h1>
+ <span>Director: James Cameron (born August 16, 1954)</span>
+ <span>Science fiction</span>
+ <a href="../movies/avatar-theatrical-trailer.html">Trailer</a>
+</div>
+
+--to--
+<div itemscope itemtype ="http://schema.org/Movie">
+  <h1 itemprop="name"&g;Avatar</h1>
+  <div itemprop="director" itemscope itemtype="http://schema.org/Person">
+  Director: <span itemprop="name">James Cameron</span> (born <span itemprop="birthDate">August 16, 1954)</span>
+  </div>
+  <span itemprop="genre">Science fiction</span>
+  <a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer">Trailer</a>
+</div>
