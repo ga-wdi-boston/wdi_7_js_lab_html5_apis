@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/handlebars-v1.3.0.js" type="text/javascript" charset="utf-8"></script>
+  <title></title>
+  <script id="xkcd-template" type="text/x-handlebars-template">
+    <div id='xkcd'>
+      {{xkcd.title}}
+      <p><img src='{{xkcd.img}}'></p>
+    </div>
+  </script>
+<script>
+$(document).ready(function() {
+
+  var refresh = function(event){
+    var $id = $('#number').val();
+    event.preventDefault();
+
+    goToId($id);
+  };
+
+  var goToId = function(id){
+    $.ajax({
+      url: 'http://xkcd-unofficial-api.herokuapp.com/xkcd?id=' + id
+    })
+    .done(function(result){
+      display(result);
+      history.pushState(result);
+    });
+  };
+
+  var buildHTML = function(xkcd){
+    var xkcd_source = $('#xkcd-template').html();
+    var template = Handlebars.compile(xkcd_source);
+    var xkcd_html = template(xkcd);
+    return xkcd_html;
+  };
+
+  var display = function(xkcd){
+    $('#show').empty();
+    builtHTML = buildHTML(xkcd[0]);
+    $('#show').append(builtHTML);
+    $('#number').val('');
+  };
+
+  $('#users-number').submit(refresh);
+
+  window.onpopstate = function(event) {
+    var eventReturnObject = event.state;
+    display(eventReturnObject);
+    $('#number').val(eventReturnObject[0].id);
+  };
+
+});
+</script>
+</head>
+<body>
+
+<div id='controls'>
+  <form id='users-number'>
+    <input type='text' name='id' id='number'>
+  </form>
+
+</div>
+
+<div id='show'>
+</div>
+</body>
+</html>
