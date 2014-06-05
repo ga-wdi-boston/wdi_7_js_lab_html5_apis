@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Worker example: One-core computation</title>
+  <script src="js/jquery.js"></script>
+
+  <script>
+  var worker = new Worker('worker.js');
+  worker.onmessage = function (event) {
+    document.getElementById('result').textContent = event.data;
+  };
+  </script>
+
+  <script>
+    $(document).ready(function(){
+
+      $('#input_form').submit(function(event) {
+      event.preventDefault();
+      var $form = $(event.target);
+      var inputValue = $form.find("input[id='input_text']").val();
+      alert(inputValue);
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <p>The highest prime number discovered so far is: <output id="result"></output></p>
+
+  <form id='input_form'>
+    <input type='text' id='input_text' name='input_name'>
+    <input type='submit' value='calculate' id='submit'>
+  </form>
+
+  <table>
+    <caption>Results of Calculation</caption>
+    <thead>
+      <tr>
+        <th>Number Entered |</th>
+        <th> Random Numbers |</th>
+        <th> Average of Random Numbers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="entered"></td>
+        <td id="random"></td>
+        <td id="average"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+</html>
