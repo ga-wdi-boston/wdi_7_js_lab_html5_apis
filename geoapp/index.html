@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="geoapp.js"></script>
+    <script src="/../handlebars-v1.3.0.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script id="position_template" type="text/x-handlebars-template">
+      <li>Latitude: {{latitude}}<br>
+          Longitude: {{longitude}}<br>
+          More or less {{accuracy}} meters accuracy<br>
+          You checked at: {{date}}<br>
+      </li>
+    </script>
+      <div class='container'>
+        <h2>Check-in here!</h2>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <button id='check-in' class='btn btn-success'>Check in</button>
+            <button id='clear' class='btn btn-danger'>Clear</button>
+          </div>
+          <div class="panel-body">
+            <div class='well'>Your location(s):
+              <ul id="check-in-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="tutorial" width="150" height="150"></canvas>
+  </body>
+</html>
+
+
