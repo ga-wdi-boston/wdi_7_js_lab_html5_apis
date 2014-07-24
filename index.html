@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Drag and Drop Example</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="drag.js"></script>
+  </head>
+
+  <body>
+
+    <div class="todo-list">
+      <h3>active todos</h3>
+      <ul id="active" class="todo-list">
+        <li draggable="true" class="todo-item" data-id='1'>call nick</li>
+        <li draggable="true" class="todo-item" data-id='2'>email diarmuid</li>
+        <li draggable="true" class="todo-item" data-id='3'>text devin</li>
+      </ul>
+    </div>
+
+    <div class="todo-list" ondragover="event.preventDefault()">
+      <h3>completed todos</h3>
+      <ul id="completed">
+      </ul>
+    </div>
+
+    <div id="delete" ondragover="event.preventDefault()">
+      <h3>delete</h3>
+    </div>
+
+  </body>
+</html>
