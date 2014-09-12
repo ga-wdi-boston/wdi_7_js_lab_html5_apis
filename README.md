@@ -1,6 +1,6 @@
-# HTML5 Hodgepodge!
+# HTML5 API Demo
 
-Each group will complete one of the following tasks. In most cases you'll need to run a local HTTP server due to security restrictions: try `python -m SimpleHTTPServer` in the directory you want to serve.
+In most cases you'll need to run a local HTTP server due to security restrictions: try `python -m SimpleHTTPServer` in the directory you want to serve.
 
 ## [Geolocation](https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation) + [Local Storage](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage)
 
