@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/handlebars-v1.3.0.js" type="text/javascript" charset="utf-8"></script>
+  <title></title>
+<script>
+$(document).ready(function() {
+
+  var refresh = function(event){
+    var $id = $('#number').val();
+    event.preventDefault();
+
+    goToId($id);
+  };
+
+  var goToId = function(id){
+    $.ajax({
+      url: 'http://xkcd-unofficial-api.herokuapp.com/xkcd?id=' + id
+    })
+    .done(function(result){
+      display(result);
+      history.pushState(result);
+    });
+  };
+
+  var display = function(xkcd){
+    $('#show').empty();
+    var new_div = $('<div id=\'xkcd\'>');
+    new_div = new_div.text(xkcd[0].title);
+    new_div.append("<p><img src=\'" + xkcd[0].img + "\'></p>");
+    $('#show').append(new_div);
+    $('#number').val('');
+  };
+
+  $('#users-number').submit(refresh);
+
+  window.onpopstate = function(event) {
+    var eventReturnObject = event.state;
+    display(eventReturnObject);
+    $('#number').val(eventReturnObject[0].id);
+  };
+
+});
+</script>
+</head>
+<body>
+
+<div id='controls'>
+  <form id='users-number'>
+    <input type='text' name='id' id='number'>
+  </form>
+
+</div>
+
+<div id='show'>
+</div>
+</body>
+</html>
